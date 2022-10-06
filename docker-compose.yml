@@ -1,0 +1,24 @@
+version: "3.0"
+
+services:
+  php:
+    container_name: php-generators
+    build:
+      context: docker/php
+    depends_on:
+      - mysql
+    volumes:
+      - "./src:/var/www/generators"
+    env_file:
+      - "./env/db.env"
+
+  mysql:
+    container_name: db_generators
+    build:
+      context: docker/mysql
+    env_file:
+      - "./env/db.env"
+    volumes:
+      - "./docker/mysql/data:/var/lib/mysql"
+    ports:
+      - "3316:3306"
