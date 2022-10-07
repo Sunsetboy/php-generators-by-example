@@ -19,6 +19,13 @@ php src/fill_db.php
 
 ## Examples
 
+### Basics
+
+```
+src/generator_features.php
+```
+Basic features of generators: how to create and use it methods, how to iterate through elements.
+
 ### Processing a large array
 
 ```
