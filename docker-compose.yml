@@ -11,6 +11,16 @@ services:
       - "./src:/var/www/generators"
     env_file:
       - "./env/db.env"
+  php_async:
+    container_name: php-async
+    build:
+      context: docker/php_async
+    depends_on:
+      - mysql
+    volumes:
+      - "./src_async:/var/www/async"
+    env_file:
+      - "./env/db.env"
 
   mysql:
     container_name: db_generators
