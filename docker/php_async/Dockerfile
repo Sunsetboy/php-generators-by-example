@@ -16,7 +16,9 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libzip-dev \
     && rm -r /var/lib/apt/lists/* \
-    && docker-php-ext-install -j$(nproc) mbstring mysqli pdo_mysql
+    && docker-php-ext-install -j$(nproc) mbstring mysqli pdo_mysql pcntl
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN groupadd -g 1000 -r developer && useradd -r -m -u 1000 -g developer developer
 
